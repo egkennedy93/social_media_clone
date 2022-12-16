@@ -17,8 +17,7 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -125,6 +124,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIR = [os.path.join(BASE_DIR, 'static')]
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
+LOGIN_REDIRECT_URL = 'test'
+LOGOUT_REDIRECT_URL = 'thanks'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
