@@ -6,10 +6,8 @@ from groups.models import Group
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
-
-
 class Post(models.Model):
-    user = models.ForeignKey(User, related_name='posts')
+    user = models.ForeignKey(User, related_name='posts', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now=True)
     message = models.TextField()
     message_html = models.TextField(editable=False)
@@ -27,7 +25,7 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        unique_together = ['User', 'message']
+        unique_together = [User, 'message']
 
 
 
