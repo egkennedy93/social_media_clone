@@ -25,7 +25,7 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-created_at']
-        unique_together = [User, 'message']
+        unique_together = ['user', 'message']
 
 
 
