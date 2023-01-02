@@ -4,8 +4,6 @@ from django.contrib.auth import get_user_model
 from django import template
 from django.urls import reverse
 
-import misaka
-
 User = get_user_model()
 register = template.Library()
 
@@ -21,7 +19,7 @@ class Group(models.Model):
         
     def save(self, *args, **kwargs):
         self.slug= slugify(self.name)
-        self.description_html = misaka(self.description)
+        self.description_html = self.description
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
